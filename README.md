@@ -19,7 +19,3 @@ Tavily API
 pip install -r requirements.txt
 streamlit run app.py
 
-## Future improvements
-- AI summarization
-- Voice search
-- Dark/Light mode
