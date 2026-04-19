@@ -4,9 +4,19 @@ import requests
 import streamlit as st
 
 st.set_page_config(
-    page_title="Jenne AI",
-    page_icon="🤖✨",
+    page_title="AskJenneAI - AI Search Assistant",
+    page_icon="🤖",
     layout="wide",
+)
+
+# Hidden SEO text
+st.markdown(
+    """
+    <div style="display:none;">
+    AskJenneAI AI chatbot Streamlit AI search assistant Jenne AI Perplexity clone AI web search bot Vijay Kumar Jenne
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
 # --------------------------
@@ -99,14 +109,6 @@ st.markdown(
             line-height: 1.5;
         }
 
-        .chat-title-label {
-            color: #e5e7eb;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-
         .small-note {
             color: #c5c5d2;
             font-size: 0.82rem;
@@ -153,9 +155,6 @@ if "last_answer" not in st.session_state:
 
 if "last_sources" not in st.session_state:
     st.session_state.last_sources = []
-
-if "rename_mode" not in st.session_state:
-    st.session_state.rename_mode = False
 
 # --------------------------
 # Helpers
@@ -295,7 +294,7 @@ def run_query(query: str):
         thinking.empty()
 
         st.markdown('<div class="assistant-box">', unsafe_allow_html=True)
-        st.markdown('<div class="answer-title">Jenne AI</div>', unsafe_allow_html=True)
+        st.markdown('<div class="answer-title">AskJenneAI</div>', unsafe_allow_html=True)
         type_text(answer, st.session_state.typing_speed)
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -313,7 +312,7 @@ def run_query(query: str):
 # Sidebar
 # --------------------------
 with st.sidebar:
-    st.markdown('<div class="sidebar-header">🤖 Jenne AI</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-header">🤖 AskJenneAI</div>', unsafe_allow_html=True)
     st.markdown('<div class="sidebar-subtitle">AI Search Assistant</div>', unsafe_allow_html=True)
 
     if st.button("➕ New chat", use_container_width=True):
@@ -321,7 +320,6 @@ with st.sidebar:
         st.rerun()
 
     st.markdown("---")
-
     st.markdown("### Chats")
     conversation_items = list(st.session_state.conversations.items())[::-1]
 
@@ -360,7 +358,7 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### Built by")
     st.markdown("**Vijay Kumar Jenne**")
-    st.markdown('<div class="small-note">Portfolio-ready AI project</div>', unsafe_allow_html=True)
+    st.markdown('<div class="small-note">AskJenneAI project</div>', unsafe_allow_html=True)
 
 # --------------------------
 # Header
@@ -368,8 +366,8 @@ with st.sidebar:
 st.markdown(
     """
     <div class="top-header">
-        <div class="top-title">🤖 Jenne AI</div>
-        <div class="top-subtitle">A production-style AI search assistant with multi-chat sidebar</div>
+        <div class="top-title">🤖 AskJenneAI</div>
+        <div class="top-subtitle">Smart AI Search Assistant by Vijay Kumar Jenne</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -390,7 +388,7 @@ if nav == "📋 Copy Answer":
         st.download_button(
             "Download answer",
             data=st.session_state.last_answer,
-            file_name="jenne_ai_answer.txt",
+            file_name="askjenneai_answer.txt",
             mime="text/plain",
             use_container_width=True,
         )
@@ -423,7 +421,7 @@ for msg in messages:
     with st.chat_message(msg["role"]):
         if msg["role"] == "assistant":
             st.markdown('<div class="assistant-box">', unsafe_allow_html=True)
-            st.markdown('<div class="answer-title">Jenne AI</div>', unsafe_allow_html=True)
+            st.markdown('<div class="answer-title">AskJenneAI</div>', unsafe_allow_html=True)
             st.markdown(msg["content"])
             st.markdown("</div>", unsafe_allow_html=True)
 
@@ -443,7 +441,7 @@ if st.session_state.active_prompt:
 # --------------------------
 # Chat input
 # --------------------------
-query = st.chat_input("Message Jenne AI...")
+query = st.chat_input("Message AskJenneAI...")
 
 if query:
     run_query(query)
